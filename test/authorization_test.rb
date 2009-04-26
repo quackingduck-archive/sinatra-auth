@@ -1,6 +1,9 @@
 require "test/unit"
 require "rack/test"
+
+gem 'jeremymcanally-context', '0.5.5'
 require "context"
+gem 'jeremymcanally-pending', '0.1'
 require "pending"
 
 require File.dirname(__FILE__) + "/../lib/sinatra/authorization"
