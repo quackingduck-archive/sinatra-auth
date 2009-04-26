@@ -1,8 +1,10 @@
+gem "sr-mg", "0.0.2"
+
 task :default => :test
 
 desc "Run tests"
 task :test do
-  ruby "test/authorization_test.rb"
+  ruby "-r rubygems test/authorization_test.rb"
 end
 
 begin
