@@ -74,16 +74,16 @@ module Sinatra
       def authorize(realm="app", &block)
         define_method(:authorization_realm) { realm }
         define_method(:authorize, &block)
+        
+        before do
+          login_required if self.class.protecting?(request.path_info)
+        end
       end
     end
 
     def self.registered(app)
       Sinatra.register(DSL)
       app.helpers Helpers
-
-      app.before do
-        login_required if self.class.protecting?(request.path_info)
-      end
     end
   end
 
